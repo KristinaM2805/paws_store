@@ -12,11 +12,10 @@ a {
 }
 
 .container {
-    margin: 0 110px;
+    margin: auto;
     padding: 0;
-    max-width: 1200px;
+    max-width: 1216px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 .headline {
@@ -65,6 +64,8 @@ header {
     width: 100%;
     height: 81px;
     background-color: #F9FAFB;
+    z-index: 20;
+    border-bottom: 1px solid #E5E7EB;
 }
 
 .heder {
@@ -235,6 +236,8 @@ header {
 }
 
 .filter {
+    position: sticky;
+    top: 98px;
     width: 256px;
     height: 358px;
     background-color: #FFFFFF;
@@ -242,6 +245,7 @@ header {
     border-radius: 10px;
     grid-column: 1/2;
     grid-row: 1/3;
+    z-index: 10;
 }
 
 .filters {
@@ -489,10 +493,10 @@ input {
 }
 
 .card_holder {
-    margin: 10px 25px 25px 15px;
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
+   margin: 10px 10px 0px 15px;
+   display: flex;
+   gap: 23px;
+   flex-wrap: wrap;
 }
 
 .product_img {
@@ -513,7 +517,7 @@ input {
 }
 
 .product_card {
-    width: 293px;
+    width: 291px;
     height: 460px;
     border: none;
     overflow: hidden;        
@@ -523,7 +527,7 @@ input {
 .img_frame {
     margin: 0;
     padding: 0;
-    width: 294px;
+    width: 291px;
     height: 366px;
     border: 0px solid transparent;
     border-radius: 10px 10px 0 0;
@@ -539,7 +543,7 @@ input {
     height: 100%;
     background: rgba(0, 0, 0, 0.1);
     pointer-events: none;
-    z-index: 10;              /* меньше чем у плашки (20) */
+    z-index: 10;         
 }
 .card_holder a:hover .product_card {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
@@ -574,7 +578,6 @@ input {
 }
 .star{
     width: 6%;
-    height: 6%;
 }
 .card_info{
     display: flex;
@@ -612,19 +615,17 @@ input {
 }
 .add_info {
     position: absolute;
-    left: 16px;              /* отступ слева 16px */
-    right: 16px;              /* отступ справа 16px */
-    bottom: -100%;            /* начинаем за нижним краем */
+    left: 16px;             
+    right: 16px;              
+    bottom: -100%;          
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 16px;
-    opacity: 0;
+    opacity: 1;
     transition: bottom 0.4s ease, opacity 0.3s ease;
     z-index: 20;
-    pointer-events: none;     /* чтобы не мешала кликам */
-    
-    /* Высота автоматическая, зависит от контента */
+    pointer-events: none;   
     min-height: min-content;
 }
 .btm_price{
@@ -632,7 +633,7 @@ input {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0px 16px 16px 16px;
+    margin: 0px;
 }
 .buy_btn{
     width: 40px;
@@ -651,15 +652,108 @@ input {
 }
 .add_info .card_info{
     margin-bottom: 10px;
+    margin-left: 0px;
 }
 .add_info .card_info h5{
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 10px;
+    margin-top: 0px;
 }
 .price{
     font-size: 20px;
     font-weight: 700;
     color: #FF6900;
     margin: 0px;
+}
+footer{
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    background-color: #101828;
+    margin-top: 30px;
+}
+.footer_box{
+    width: 280px;
+    height: 163px;
+}
+footer p{
+    font-weight: 350;
+    font-size: 14px;
+    color: #99A1AF;
+}
+h3{
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 18px;
+}
+.footer_flex{
+    height: 210px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0px;
+    margin-top: 20px;
+    margin-left: -16px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #1E2939;
+}
+footer a{
+    color: #D1D5DC;
+}
+footer a:focus{
+    color: #FF6900;
+}
+
+ul{
+    padding: 0px;
+}
+li{
+    list-style-type: none;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+.icon_sm{
+    width: 20px;
+}
+.letter_field{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.bottom{
+    margin-left: -16px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.letter_btn{
+    width: 16px;
+}
+.subscribe{
+    display: flex;
+    width: 48px;
+    height: 38px;
+    border: 0px solid ;
+    border-radius: 5px;
+    background-color: #FF6900;
+    justify-content: center;
+    align-items: center;
+}
+#email{
+   width: 222px;
+   height: 38px;
+   border: 1px solid #364153 ;
+   border-radius: 5px;
+   background-color: #1E2939;
+}
+input::placeholder{
+    font-weight: 350;
+    font-size: 14px;
+    color: #99A1AF;
+    padding-left: 10px;
 }
