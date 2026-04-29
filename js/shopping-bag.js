@@ -73,18 +73,18 @@ class ShoppingBag {
         if (productName) {
             notification.innerHTML = `
                 <div class="notification-content">
-                    <img src="/img/icons8-галочка-64.png" alt="Success" class="notification-icon">
+                    <img src="img/icons8-галочка-64.png" alt="Success" class="notification-icon">
                     <div class="notification-text">
                         <strong>${productName}</strong>
                         <span>${quantity} × added to cart</span>
                     </div>
-                    <a href="/shoping_bag.html" class="notification-link">View Cart →</a>
+                    <a href="shoping_bag.html" class="notification-link">View Cart →</a>
                 </div>
             `;
         } else if (message === 'Item removed') {
             notification.innerHTML = `
                 <div class="notification-content">
-                    <span><img src="/img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
+                    <span><img src="img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
                         <p>Item removed from cart</p>
                 </div>
             `;
@@ -102,7 +102,7 @@ class ShoppingBag {
         } else {
             notification.innerHTML = `
                 <div class="notification-content">
-                     <span><img src="/img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
+                     <span><img src="img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
                         <p>${message}</p>
                 </div>
             `;
@@ -298,14 +298,14 @@ class ShoppingBag {
             const totalPrice = item.price * item.quantity;
             html += `
                 <div class="item_in_char" data-product-id="${item.id}" data-original-price="${item.price}">
-                    <a class="link_product" href="/product_page.html?id=${item.id}">
+                    <a class="link_product" href="product_page.html?id=${item.id}">
                         <div class="img_wrapper">
-                            <img src="${item.image}" alt="${item.name}" onerror="this.src='/img/placeholder.png'">
+                            <img src="${item.image}" alt="${item.name}" onerror="this.src='img/placeholder.png'">
                         </div>
                     </a>
                     <div class="shopping_item_info">
                         <div class="name_category">
-                            <a class="link_product_t" href="/product_page.html?id=${item.id}">${item.name}</a>
+                            <a class="link_product_t" href="product_page.html?id=${item.id}">${item.name}</a>
                             <p>${item.category || 'Pet Product'}</p>
                         </div>
                         <div class="quantity_iteam">
@@ -320,7 +320,7 @@ class ShoppingBag {
                                 <h5 class="item-price">$${totalPrice.toFixed(2)}</h5>
                                 <p>$${item.price.toFixed(2)}</p>
                             </div>
-                            <button class="delete-item"><img src="/img/icons8-мусорное-ведро-64.png" alt="Delete"></button>
+                            <button class="delete-item"><img src="img/icons8-мусорное-ведро-64.png" alt="Delete"></button>
                         </div>
                     </div>
                 </div>
