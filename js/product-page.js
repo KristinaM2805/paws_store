@@ -70,7 +70,7 @@ class ProductPage {
         } else {
             const cardProduct = productsData.cards.find(p => p.id === this.product.id);
             const price = cardProduct ? cardProduct.price : this.product.price;
-            const image = cardProduct ? cardProduct.image : (this.product.images?.[0] || `/img/product${this.product.id}.webp`);
+            const image = cardProduct ? cardProduct.image : (this.product.images?.[0] || `img/product${this.product.id}.webp`);
             
             this.cart.push({
                 id: this.product.id,
@@ -98,7 +98,7 @@ class ProductPage {
     createRating(rating, ratingText) {
         let stars = '';
         for (let i = 1; i <= 5; i++) {
-            stars += `<img class="star" src="/img/icons8-star-${i <= rating ? '100' : '100-2'}.png" alt="★">`;
+            stars += `<img class="star" src="img/icons8-star-${i <= rating ? '100' : '100-2'}.png" alt="★">`;
         }
         stars += `<span class="common_score">${ratingText}</span>`;
         return stars;
@@ -119,13 +119,13 @@ class ProductPage {
         return `
             <div class="tech_specific">
                 <div class="tech_specific_header">
-                    <img src="/img/tech_specific.png" alt="Specifications">
+                    <img src="img/tech_specific.png" alt="Specifications">
                     <h3>Technical Specifications</h3>
                 </div>
                 <div class="specific_holder">
                     ${specs.map(spec => `
                         <div class="specific_box">
-                            <div class="imopent_icon"><img src="/img/i.png"></div>
+                            <div class="imopent_icon"><img src="img/i.png"></div>
                             <div class="specific_txt">
                                 <h6>${spec.label}</h6>
                                 <p>${spec.value}</p>
@@ -263,7 +263,7 @@ renderRelatedProducts() {
         html += `
             <a href="/product_page.html?id=${product.id}" class="related_products_card">
                 <div class="related_products_frame">
-                    <img src="${product.image}" alt="${product.name}" onerror="this.src='/img/placeholder.png'">
+                    <img src="${product.image}" alt="${product.name}" onerror="this.src='img/placeholder.png'">
                 </div>
                 <div class="related_products_info">
                     <h3>${product.name}</h3>

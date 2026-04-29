@@ -1,4 +1,3 @@
-
 class ProductsRenderer {
     constructor(containerSelector) {
         this.container = document.querySelector(containerSelector);
@@ -8,11 +7,11 @@ class ProductsRenderer {
         this.currentSort = 'name-az';
         this.currentFilters = {
             rating: {
-                5: true,
-                4: true,
-                3: true
+                5: false,
+                4: false,
+                3: false
             },
-            minPrice: 0,
+            minPrice: 10,
             maxPrice: 100
         };
         this.init();
@@ -55,7 +54,7 @@ class ProductsRenderer {
         notification.className = 'cart-notification';
         notification.innerHTML = `
             <div class="notification-content">
-                <span><img src="/img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
+                <span><img src="img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
                     <p>${productName}added to cart</p>
             </div>
         `;
@@ -97,9 +96,9 @@ class ProductsRenderer {
         let stars = '';
         for (let i = 1; i <= 5; i++) {
             if (i <= rating) {
-                stars += `<img class="star" src="/img/icons8-star-100.png" alt="★">`;
+                stars += `<img class="star" src="img/icons8-star-100.png" alt="★">`;
             } else {
-                stars += `<img class="star" src="/img/icons8-star-100-2.png" alt="☆">`;
+                stars += `<img class="star" src="img/icons8-star-100-2.png" alt="☆">`;
             }
         }
         
@@ -199,61 +198,68 @@ setupCustomSelect() {
     }
 
     setupFiltersAndSort() {
-        const ratingCheckboxes = document.querySelectorAll('.rating_checkbox .checkbox');
-        ratingCheckboxes.forEach((checkbox, index) => {
-            const ratingValue = [5, 4, 3][index];
-            checkbox.addEventListener('change', (e) => {
-                this.currentFilters.rating[ratingValue] = e.target.checked;
-                this.applyFiltersAndSort();
-            });
+    const ratingCheckboxes = document.querySelectorAll('.rating_checkbox .checkbox');
+    ratingCheckboxes.forEach((checkbox, index) => {
+        const ratingValue = [5, 4, 3][index];
+        checkbox.checked = this.currentFilters.rating[ratingValue];
+        
+        checkbox.addEventListener('change', (e) => {
+            this.currentFilters.rating[ratingValue] = e.target.checked;
+            this.applyFiltersAndSort();
         });
-        
-        const minPriceInput = document.querySelector('.price_range .minmax:first-child .input_num');
-        if (minPriceInput) {
-            minPriceInput.addEventListener('change', (e) => {
-                this.currentFilters.minPrice = parseInt(e.target.value) || 0;
-                this.applyFiltersAndSort();
-            });
-        }
-
-        const maxPriceInput = document.querySelector('.price_range .minmax:last-child .input_num');
-        if (maxPriceInput) {
-            maxPriceInput.addEventListener('change', (e) => {
-                this.currentFilters.maxPrice = parseInt(e.target.value) || 100;
-                this.applyFiltersAndSort();
-            });
-        }
-        const mobileRatingCheckboxes = document.querySelectorAll('.filter_o .rating_checkbox .checkbox');
-        mobileRatingCheckboxes.forEach((checkbox, index) => {
-            const ratingValue = [5, 4, 3][index];
-            checkbox.addEventListener('change', (e) => {
-                this.currentFilters.rating[ratingValue] = e.target.checked;
-                this.applyFiltersAndSort();
-                const mainCheckbox = document.querySelectorAll('.filter .rating_checkbox .checkbox')[index];
-                if (mainCheckbox) mainCheckbox.checked = e.target.checked;
-            });
+    });
+    
+    const minPriceInput = document.querySelector('.price_range .minmax:first-child .input_num');
+    if (minPriceInput) {
+        minPriceInput.value = this.currentFilters.minPrice;
+        minPriceInput.addEventListener('change', (e) => {
+            this.currentFilters.minPrice = parseInt(e.target.value) || 0;
+            this.applyFiltersAndSort();
         });
-        
-        const mobileMinPrice = document.querySelector('.filter_o .price_range .minmax:first-child .input_num');
-        if (mobileMinPrice) {
-            mobileMinPrice.addEventListener('change', (e) => {
-                this.currentFilters.minPrice = parseInt(e.target.value) || 0;
-                this.applyFiltersAndSort();
-                const mainMinPrice = document.querySelector('.filter .price_range .minmax:first-child .input_num');
-                if (mainMinPrice) mainMinPrice.value = e.target.value;
-            });
-        }
-        
-        const mobileMaxPrice = document.querySelector('.filter_o .price_range .minmax:last-child .input_num');
-        if (mobileMaxPrice) {
-            mobileMaxPrice.addEventListener('change', (e) => {
-                this.currentFilters.maxPrice = parseInt(e.target.value) || 100;
-                this.applyFiltersAndSort();
-                const mainMaxPrice = document.querySelector('.filter .price_range .minmax:last-child .input_num');
-                if (mainMaxPrice) mainMaxPrice.value = e.target.value;
-            });
-        }
     }
+    const maxPriceInput = document.querySelector('.price_range .minmax:last-child .input_num');
+    if (maxPriceInput) {
+        maxPriceInput.value = this.currentFilters.maxPrice;
+        maxPriceInput.addEventListener('change', (e) => {
+            this.currentFilters.maxPrice = parseInt(e.target.value) || 100;
+            this.applyFiltersAndSort();
+        });
+    }
+    
+    const mobileRatingCheckboxes = document.querySelectorAll('.filter_o .rating_checkbox .checkbox');
+    mobileRatingCheckboxes.forEach((checkbox, index) => {
+        const ratingValue = [5, 4, 3][index];
+        checkbox.checked = this.currentFilters.rating[ratingValue];
+        checkbox.addEventListener('change', (e) => {
+            this.currentFilters.rating[ratingValue] = e.target.checked;
+            this.applyFiltersAndSort();
+            const mainCheckbox = document.querySelectorAll('.filter .rating_checkbox .checkbox')[index];
+            if (mainCheckbox) mainCheckbox.checked = e.target.checked;
+        });
+    });
+    
+    const mobileMinPrice = document.querySelector('.filter_o .price_range .minmax:first-child .input_num');
+    if (mobileMinPrice) {
+        mobileMinPrice.value = this.currentFilters.minPrice;
+        mobileMinPrice.addEventListener('change', (e) => {
+            this.currentFilters.minPrice = parseInt(e.target.value) || 0;
+            this.applyFiltersAndSort();
+            const mainMinPrice = document.querySelector('.filter .price_range .minmax:first-child .input_num');
+            if (mainMinPrice) mainMinPrice.value = e.target.value;
+        });
+    }
+    
+    const mobileMaxPrice = document.querySelector('.filter_o .price_range .minmax:last-child .input_num');
+    if (mobileMaxPrice) {
+        mobileMaxPrice.value = this.currentFilters.maxPrice;
+        mobileMaxPrice.addEventListener('change', (e) => {
+            this.currentFilters.maxPrice = parseInt(e.target.value) || 100;
+            this.applyFiltersAndSort();
+            const mainMaxPrice = document.querySelector('.filter .price_range .minmax:last-child .input_num');
+            if (mainMaxPrice) mainMaxPrice.value = e.target.value;
+        });
+    }
+}
     sortProducts() {
         switch(this.currentSort) {
             case 'name-az':
@@ -272,15 +278,20 @@ setupCustomSelect() {
                 break;
         }
     }
-
-    filterProducts() {
-        this.filteredProducts = this.products.filter(product => {
-            const ratingOk = this.currentFilters.rating[Math.floor(product.rating)] === true;
-            const priceOk = product.price >= this.currentFilters.minPrice && 
-                           product.price <= this.currentFilters.maxPrice;
-            return ratingOk && priceOk;
-        });
+filterProducts() {
+    const hasActiveRatingFilter = Object.values(this.currentFilters.rating).some(value => value === true);
+    if (!hasActiveRatingFilter && this.currentFilters.minPrice === 10 && this.currentFilters.maxPrice === 100) {
+        this.filteredProducts = [...this.products];
+        return;
     }
+
+    this.filteredProducts = this.products.filter(product => {
+        const ratingOk = hasActiveRatingFilter ? this.currentFilters.rating[Math.floor(product.rating)] === true : true;
+        const priceOk = product.price >= this.currentFilters.minPrice && 
+                       product.price <= this.currentFilters.maxPrice;
+        return ratingOk && priceOk;
+    });
+}
 
     applyFiltersAndSort() {
         this.filterProducts();
@@ -299,7 +310,7 @@ setupCustomSelect() {
     createCard(product) {
     return `
         <div class="product_card" data-product-id="${product.id}">
-            <a href="/product_page.html?id=${product.id}" class="product-main-link">
+            <a href="product_page.html?id=${product.id}" class="product-main-link">
                 <div class="img_frame">
                     <img class="product_img" src="${product.image}" alt="${product.name}">
                     <div class="price_pl"><span class="price_span">$${product.price}</span></div>
@@ -313,7 +324,7 @@ setupCustomSelect() {
                         <div class="btm_price">
                             <p class="price">$${product.oldPrice}</p>
                             <button class="buy_btn" data-id="${product.id}">
-                                <img class="buy_icon" src="/img/icons8-тележка-64.png" alt="Buy">
+                                <img class="buy_icon" src="img/icons8-тележка-64.png" alt="Buy">
                             </button>
                         </div>
                     </div>

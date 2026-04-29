@@ -9,7 +9,7 @@ const productsData = {
             oldPrice: 69.99,
             rating: 4,
             reviews: 124,
-            image: "/img/photo1.jpeg",
+            image: "img/photo1.jpeg",
             badge: "Best Seller"
         },
         {
@@ -20,7 +20,7 @@ const productsData = {
             oldPrice: 22.99,
             rating: 5,
             reviews: 89,
-            image: "/img/photo2.jpeg",
+            image: "img/photo2.jpeg",
             badge: "-30%"
         },
         {
@@ -31,7 +31,7 @@ const productsData = {
             oldPrice: 45.99,
             rating: 4,
             reviews: 67,
-            image: "/img/photo3.jpeg",
+            image: "img/photo3.jpeg",
             badge: "Sale"
         },
         {
@@ -42,7 +42,7 @@ const productsData = {
             oldPrice: 129.99,
             rating: 5,
             reviews: 256,
-            image: "/img/photo4.jpeg",
+            image: "img/photo4.jpeg",
             badge: "Popular"
         },
         {
@@ -53,7 +53,7 @@ const productsData = {
             oldPrice: 99.99,
             rating: 4,
             reviews: 312,
-            image: "/img/photo5.jpeg",
+            image: "img/photo5.jpeg",
             badge: "-30%"
         },
         {
@@ -64,7 +64,7 @@ const productsData = {
             oldPrice: 34.99,
             rating: 5,
             reviews: 178,
-            image: "/img/photo6.jpeg",
+            image: "img/photo6.jpeg",
             badge: "Best Seller"
         }
     ],
@@ -90,7 +90,7 @@ const productsData = {
                 { label: "Airline Approved", value: "Yes (TSA Compliant)" },
                 { label: "Features", value: "Collapsible, Padded Strap" }
             ],
-            images: ["/img/photo1.jpeg", "/img/photo1.jpeg", "/img/photo1.jpeg"]
+            images: ["img/photo1.jpeg", "img/photo1.jpeg", "img/photo1.jpeg"]
         },
         2: {
             id: 2,
@@ -112,7 +112,7 @@ const productsData = {
                 { label: "Safety", value: "BPA-Free, Non-Toxic" },
                 { label: "Suitable For", value: "All Dog Sizes" }
             ],
-            images: ["/img/photo2.jpeg", "/img/photo2.jpeg", "/img/photo2.jpeg"]
+            images: ["img/photo2.jpeg", "img/photo2.jpeg", "img/photo2.jpeg"]
         },
         3: {
             id: 3,
@@ -134,7 +134,7 @@ const productsData = {
                 { label: "HARDWARE", value: "Metal D-ring & Clasp" },
                 { label: "SUITABLE FOR", value: "Medium to Large Dogs" }
             ],
-            images: ["/img/photo3.jpeg", "/img/photo3.jpeg", "/img/photo4.jpeg"]
+            images: ["img/photo3.jpeg", "img/photo3.jpeg", "img/photo4.jpeg"]
         },
         4: {
             id: 4,
@@ -156,7 +156,7 @@ const productsData = {
                 { label: "PLATFORMS", value: "3 Levels" },
                 { label: "WEIGHT CAPACITY", value: "Up to 25 lbs per platform" }
             ],
-            images: ["/img/photo4.jpeg", "/img/photo4.jpeg", "/img/photo4.jpeg"]
+            images: ["img/photo4.jpeg", "img/photo4.jpeg", "img/photo4.jpeg"]
         },
         5: {
             id: 5,
@@ -178,7 +178,7 @@ const productsData = {
                 { label: "WASHING", value: "Machine Washable Cover" },
                 { label: "WEIGHT", value: "8 lbs" }
             ],
-            images: ["/img/photo5.jpeg", "/img/photo5.jpeg", "/img/photo5.jpeg"]
+            images: ["img/photo5.jpeg", "img/photo5.jpeg", "img/photo5.jpeg"]
         },
         6: {
             id: 6,
@@ -200,7 +200,7 @@ const productsData = {
                 { label: "CARE", value: "Dishwasher Safe" },
                 { label: "WEIGHT", value: "1.2 lbs" }
             ],
-            images: ["/img/photo6.jpeg", "/img/photo6.jpeg", "/img/photo6.jpeg"]
+            images: ["img/photo6.jpeg", "img/photo6.jpeg", "img/photo6.jpeg"]
         }
     }
 };

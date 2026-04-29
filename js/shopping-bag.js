@@ -242,30 +242,26 @@ class ShoppingBag {
         const subtotalElement = document.querySelector('.account .subtotal');
         const taxElement = document.querySelector('.account .tax');
         const totalElement = document.querySelector('.total_price .total');
-        const discountLine = document.querySelector('.account .discount-line');
-        const discountAmountElement = document.querySelector('.account .discount-amount');
-        const itemCountElement = document.querySelector('.order_summery_header p');
         const bagCountElement = document.querySelector('.name_of_page_and_iteam p');
-        
+        const itemCountElement = document.querySelector('.order_summery_header p');
         if (subtotalElement) subtotalElement.textContent = `$${discountedSubtotal.toFixed(2)}`;
         if (taxElement) taxElement.textContent = `$${tax.toFixed(2)}`;
         if (totalElement) totalElement.textContent = `$${total.toFixed(2)}`;
-        
+        ;
+        const discountBlock = document.querySelector('.account .discount-block');
         if (this.promoApplied) {
-            if (discountLine) {
-                discountLine.style.display = 'flex';
-                if (discountAmountElement) discountAmountElement.textContent = `-$${this.discountAmount.toFixed(2)}`;
-            }
-        } else {
-            if (discountLine) discountLine.style.display = 'none';
+        if (discountBlock) {
+            discountBlock.querySelector('.promo_p').textContent = `-$${this.discountAmount.toFixed(2)}`;
+            discountBlock.style.display = 'flex';
         }
-        
-        this.updateShippingStatus();
+    } else {
+        if (discountBlock) discountBlock.style.display = 'none';
+    }
         
         const word = itemCount === 1 ? 'item' : 'items';
         if (itemCountElement) itemCountElement.textContent = `${itemCount} ${word} in your bag`;
         if (bagCountElement) bagCountElement.textContent = `${itemCount} ${word} ready for checkout`;
-        
+        this.updateShippingStatus();
         this.updateCartDisplay();
     }
     
