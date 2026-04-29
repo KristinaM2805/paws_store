@@ -88,6 +88,9 @@ header {
     background-color: #ffffff;
     z-index: 20;
     border-bottom: 1px solid #E5E7EB;
+        display: flex;
+    flex-direction: column;
+    
 }
 
 .heder {
@@ -98,7 +101,7 @@ header {
     flex-wrap: wrap;
     margin-bottom: 0;
     padding-top: 10px;
-    background-color: #ffffff;
+    gap: 9px;
 }
 
 .logo {
@@ -188,7 +191,15 @@ header {
 .burger_icon:hover {
     background-color: #ededed;
 }
-
+.menu-sml{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: #364153;
+    gap: 32px;
+    height: auto;
+    background-color: #ffffff;
+}
 .main {
     display: grid;
     grid-template-columns: 256px auto;
@@ -346,7 +357,7 @@ input {
 .sort_line_{
     display: flex;
     flex-direction: column;
-    gap:25px;
+    gap:0px;
     margin-bottom: 5px;
 }
 .sort_line {
@@ -922,6 +933,7 @@ padding: 0px;
     z-index: 10;
     display: none;
     padding: 24px;
+    margin-bottom: 20px;
     }
     .filter_head{
         display: flex;
@@ -1034,7 +1046,8 @@ padding: 0px;
         width: auto;
         height: 96px;
         padding: 16px;
-        gap:15px
+        gap:15px;
+        margin-bottom: 20px;
     }
     .custom-select{
         width: 100%;
@@ -2767,5 +2780,39 @@ color: #FFFFFF;
     
      .related_products_grid {
         grid-template-columns: 1fr;
+    }
+}
+/* Десктопное меню */
+.menu {
+    display: flex;
+    color: #364153;
+    gap: 32px;
+}
+
+/* Мобильное меню (скрыто по умолчанию) */
+.menu-sml {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 6px;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 20px 16px 20px 16px;
+}
+
+.menu-sml a:last-child {
+    border-bottom: none;
+}
+
+
+/* Планшеты и мобильные устройства */
+@media screen and (max-width: 1024px) {
+    .menu {
+        display: none;
+    }
+    
+    .burger_icon {
+        display: flex !important;
     }
 }

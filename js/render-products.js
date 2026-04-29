@@ -174,7 +174,6 @@ setupCustomSelect() {
             filterBtn.addEventListener('click', () => {
                 if (filterPanel.style.display === 'none' || filterPanel.style.display === '') {
                     filterPanel.style.display = 'block';
-                    if (mainBlock) mainBlock.style.gridTemplateRows = '450px auto';
                 } else {
                     filterPanel.style.display = 'none';
                     if (mainBlock) mainBlock.style.gridTemplateRows = '';

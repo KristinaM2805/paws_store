@@ -1,4 +1,3 @@
-
 class ShoppingBag {
     constructor() {
         this.cart = this.loadCart();
@@ -70,18 +69,7 @@ class ShoppingBag {
         const notification = document.createElement('div');
         notification.className = `cart-notification ${isError ? 'error-notification' : 'success-notification'}`;
         
-        if (productName) {
-            notification.innerHTML = `
-                <div class="notification-content">
-                    <img src="img/icons8-галочка-64.png" alt="Success" class="notification-icon">
-                    <div class="notification-text">
-                        <strong>${productName}</strong>
-                        <span>${quantity} × added to cart</span>
-                    </div>
-                    <a href="shoping_bag.html" class="notification-link">View Cart →</a>
-                </div>
-            `;
-        } else if (message === 'Item removed') {
+        if (message === 'Item removed') {
             notification.innerHTML = `
                 <div class="notification-content">
                     <span><img src="img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
@@ -384,6 +372,7 @@ class ShoppingBag {
         this.updateCartCount();
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     window.shoppingBag = new ShoppingBag();
