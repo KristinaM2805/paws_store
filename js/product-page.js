@@ -46,8 +46,8 @@ class ProductPage {
         notification.className = 'cart-notification success-notification';
         notification.innerHTML = `
             <div class="notification-content">
-                <span><img src="/img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
-                    <p>${productName}added to cart</p>
+                <span><img src="img/icons8-галочка-3.svg" alt="Success" class="notification-icon"></span>
+                    <p>${productName} added to cart</p>
             </div>
         `;
         
